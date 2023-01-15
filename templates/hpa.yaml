@@ -2,14 +2,14 @@
 apiVersion: autoscaling/v2beta1
 kind: HorizontalPodAutoscaler
 metadata:
-  name: {{ include "ct-lucas-olopes.fullname" . }}
+  name: {{ include "wc-lucas-olopes.fullname" . }}
   labels:
-    {{- include "ct-lucas-olopes.labels" . | nindent 4 }}
+    {{- include "wc-lucas-olopes.labels" . | nindent 4 }}
 spec:
   scaleTargetRef:
     apiVersion: apps/v1
     kind: Deployment
-    name: {{ include "ct-lucas-olopes.fullname" . }}
+    name: {{ include "wc-lucas-olopes.fullname" . }}
   minReplicas: {{ .Values.autoscaling.minReplicas }}
   maxReplicas: {{ .Values.autoscaling.maxReplicas }}
   metrics:
