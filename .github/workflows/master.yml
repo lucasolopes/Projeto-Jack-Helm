@@ -35,6 +35,7 @@ jobs:
           push: true
           tags: olopes/meu-site:latest
   helm:
+      needs: docker
       name: helm Install
       runs-on: ubuntu-latest
       steps:
