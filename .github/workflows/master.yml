@@ -7,7 +7,7 @@ on:
 
 jobs:
   docker:
-    name: Jack
+    name: Image Docker
     runs-on: ubuntu-latest
     steps:
       -
@@ -34,8 +34,11 @@ jobs:
         with:
           push: true
           tags: olopes/meu-site:latest
+  helm:
+      name: helm Install
+      runs-on: ubuntu-latest
+      steps:
       -
-
         name: Create file Cluster
         run:  mkdir ${HOME}/.kube
       -
@@ -45,6 +48,5 @@ jobs:
         name: Def Cluster
         run: export KUBECONFIG=$(pwd)/KubeConfig
       -
-
         name: Install Chart
-        run: helm upgrade -i wc-lucas-olopes . --create-namespace -n wc-lucas-olopes
+        run: helm upgrade -i wc-lucas-olopes ./Chart --create-namespace -n wc-lucas-olopes
