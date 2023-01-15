@@ -37,9 +37,8 @@ jobs:
       -
 
         name: Create file Cluster
-        run: echo ${{ secrets.KUBECONFIG}} | base64 --decode > KubeConfig
+        run:  mkdir ${HOME}/.kube \ echo ${{ secrets.KUBECONFIG}} | base64 --decode > ${HOME}/.kube/config
       -
-
         name: Def Cluster
         run: export KUBECONFIG=$(pwd)/KubeConfig
       -
