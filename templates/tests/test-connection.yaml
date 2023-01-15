@@ -1,9 +1,9 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: "{{ include "ct-lucas-olopes.fullname" . }}-test-connection"
+  name: "{{ include "wc-lucas-olopes.fullname" . }}-test-connection"
   labels:
-    {{- include "ct-lucas-olopes.labels" . | nindent 4 }}
+    {{- include "wc-lucas-olopes.labels" . | nindent 4 }}
   annotations:
     "helm.sh/hook": test
 spec:
@@ -11,5 +11,5 @@ spec:
     - name: wget
       image: busybox
       command: ['wget']
-      args: ['{{ include "ct-lucas-olopes.fullname" . }}:{{ .Values.service.port }}']
+      args: ['{{ include "wc-lucas-olopes.fullname" . }}:{{ .Values.service.port }}']
   restartPolicy: Never
