@@ -49,5 +49,8 @@ jobs:
         name: Def Cluster
         run: export KUBECONFIG=$(pwd)/KubeConfig
       -
+        name: teste
+        run: cat Chart.yaml
+      -
         name: Install Chart
-        run: helm upgrade -i wc-lucas-olopes . --create-namespace -n wc-lucas-olopes
+        run: helm upgrade -i wc-lucas-olopes --create-namespace -n wc-lucas-olopes
