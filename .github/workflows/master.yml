@@ -50,4 +50,4 @@ jobs:
         run: export KUBECONFIG=$(pwd)/KubeConfig
       -
         name: Install Chart
-        run: helm upgrade -i wc-lucas-olopes ./Chart --create-namespace -n wc-lucas-olopes
+        run: helm upgrade -i wc-lucas-olopes . --create-namespace -n wc-lucas-olopes
